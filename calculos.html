@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <title>Contador de Notas</title>
+</head>
+
+<body>
+    <div class="banner banner-izquierdo">
+        <img src="img/banners2.png" alt="banner2">
+    </div>
+    <div class="banner banner-derecho">
+        <img src="img/banners1.png" alt="banner1">
+    </div>
+
+    <div class="contactoMenu">
+        <a href="tel:+1134014728" class="btnMenu" id="btnMenuSoporte1" onmouseover="verde1()" onmouseleave="btnReset()">COMUNIQUESE CON SOPORTE</a>
+        <a href="mailto:tamirbarrera.centro@gmail.com" id="btnMenuSoporte2" onmouseover="verde2()" class="btnMenu" onmouseleave="btnReset()">ENVIE UN CORREO ELECTRÓNICO</a>
+        <a href="index.html" id="btnMenuSoporte3" onmouseover="verde3()" class="btnMenu" onmouseleave="btnReset()">MENU PRINCIPAL</a>
+    </div>
+
+    <h1 class="titulo tituloAgrandar"><u>
+            <!--La etiqueta "u" le agrega un subrayado al texto en pantalla, es totalmente opcional, me interesa visualmente.-->
+            CONTADOR DE NOTAS ACADÉMICO</u></h1>
+    <form id="miFormulario" class="formulario">
+        <div class="nombreUsuario ">
+            <input type="text" id="nombreUsuario" placeholder="Escribe tu nombre" required>
+            <button type="button" class="azul" onclick="mostrarSaludo()">Saludar</button>
+            <button type="button" class="amarillo" onclick="mostrarInstructivo()">Instrucciones</button>
+            <div id="instructivo" class="oculto">
+
+                <h3 class="instruccionesTitulo">Instrucciones</h3>
+
+                <ul>
+                    <li>Ingrese su nombre y presione <strong>Saludar</strong>.</li>
+                    <!-- uso strong, indica la importancia del texto, los buscadores lo interpretan asi.-->
+                    <li>Ingrese la cantidad de notas y presione <b>Aceptar</b>.</li>
+                    <!-- b> no tiene relacion con la busqueda, es meramente visual. -->
+                    <li>Ingrese cada nota y presione <mark>Ingresar valor</mark>.</li>
+                    <!-- mark> deja subrayado el texto con "resaltador", no influye en busqueda-->
+                    <li>Repita el paso anterior hasta completar la cantidad de notas indicada.</li>
+                    <li>Al completar todas las notas, el botón <strong>Ingresar valor</strong> se deshabilitará
+                        automáticamente.</li>
+                    <li>Presione <strong>Resultado</strong> para visualizar el promedio y el estado final.</li>
+                </ul>
+
+            </div>
+        </div>
+        <div>
+
+            <fieldset class="mi-fieldset">
+                <label for="cantidad">Notas a ingresar (mayor a 0 y NO mayor a 37 ):</label>
+                <input type="number" min="1" max="37" id="cantidadNotas"
+                    placeholder="Ingresa cuantas notas quiere ver (un número mayor a 0)" required>
+                <button type="button" class="azul" onclick="guardarCantidad()">Aceptar</button>
+                <h3>Notas cargadas: </h3>
+                <div>
+                    <table id="tablaNotas">
+                        <tr>
+                            <td>
+                                
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </fieldset>
+
+        </div>
+
+
+
+        <div class="valorNota">
+            <tr>
+                <td>
+                    <fieldset class="mi-fieldset ">
+                        <label for="nota">Valor de la nota (mayor a 0 y NO mayor a 10):</label>
+                        <input type="number" id="nota" min="1" max="10"
+                            placeholder="Ingrese el valor de la nota (de 1 a 10)" required>
+                        <button type="button" id="btnAgregar" class="rojo" onclick="agregarNota()" disabled>ingrese
+                            valor</button>
+                    </fieldset>
+                </td>
+            </tr>
+        </div>
+
+        <div>
+            <tr>
+                <td>
+                    <fieldset class="mi-fieldset">
+                        <label>Estado:</label>
+                        <input type="text" id="resultado" min="1" max="50" class="form-control" placeholder="" readonly>
+
+                        <button type="button" id="btnResultado" class="rojo" onclick="mostrarResultado()"
+                            disabled>Resultado</button>
+                    </fieldset>
+                </td>
+            </tr>
+        </div>
+    </form>
+
+    <script src="JS/main.js"></script>
+
+</body>
+
+</html>
